@@ -1,0 +1,8 @@
+#!/bin/bash
+
+_cmd=( "$@" )
+
+[ "${#_cmd[@]}" -eq 0 ] && _cmd=("/bin/bash")
+
+docker build -t openqm-docker . &&
+	docker run -it openqm-docker "${_cmd[@]}"
